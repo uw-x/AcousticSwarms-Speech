@@ -1,8 +1,3 @@
-TODO:
-Remove weird prints/comments:
-e.g. During model evaluation, it prints: "warining!!!! use old center"
-
-
 # Multi-speaker Localization and Source Separation using Distributed Microphone Arrays
 The code for simultaneous Localization and Separation for 3D space. The algorithm can be generalized to different shapes and sizes of the microphones array. 
 
