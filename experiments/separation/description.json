@@ -1,0 +1,38 @@
+{
+    "model_name":"SpeakerSeparation",
+    "sr":48000,
+    "model_params":{
+        "n_mics":7,
+        "max_speakers":5,
+        "channels":64,
+        "growth":2,
+        "encoder_channels":4096
+    },
+    "lr_sched_params":{
+        "lr_min":1e-8,
+        "factor": 0.5,
+        "patience": 3,
+        "dont_halve_until_epoch": 30
+    },
+    "training_params":{
+        "gradient_clip":1,
+        "epochs":50,
+        "lr":3e-4,
+        "batch_size":8,
+        "loss":"sisdr"
+    },
+    "train_set_params":{
+        "input_dir":"<Training Dataset>",
+        "n_mics":7,
+        "n_speakers":5,
+        "max_white_noise_variance":1e-3,
+        "max_pink_noise_variance":5e-3,
+        "compression_prob":0
+    },
+    "test_set_params":{
+        "input_dir":"<Validation Dataset>",
+        "n_mics":7,
+        "n_speakers":5,
+        "compression_prob":0
+    }
+}

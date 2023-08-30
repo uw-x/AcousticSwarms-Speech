@@ -1,0 +1,47 @@
+{
+    "model_name":"SpeakerLocalization",
+    "sr":48000,
+    "model_params":{
+        "n_mics":7,
+        "channels":64,
+        "growth":2,
+        "encoder_channels":2048,
+        "stride_list":[2, 2, 4, 4, 4],
+        "kernel_size":7,
+        "residual_dilation_factor":7
+    },
+    "lr_sched_params":{
+        "lr_min":1e-8,
+        "factor": 0.5,
+        "patience": 3,
+        "dont_halve_until_epoch": 1
+    },
+    "training_params":{
+        "gradient_clip":1,
+        "epochs":20,
+        "lr":3e-4,
+        "batch_size":8,
+        "loss":"l1",
+        "pretrain_path":"experiments/localization_stage1/checkpoints/localization_stage1_49.pt"
+    },
+    "train_set_params":{
+        "input_dir":"<Training Dataset>",
+        "n_mics":7,
+        "negatives":0.3,
+        "max_white_noise_variance":1e-3,
+        "max_pink_noise_variance":5e-3,
+        "compression_prob":0,
+        "fixed_window_condition":-1,
+        "challenge_ratio":0.8
+    },
+    "test_set_params":{
+        "input_dir":"<Validation Dataset>",
+        "n_mics":7,
+        "negatives":0.3,
+        "max_white_noise_variance":1e-3,
+        "max_pink_noise_variance":5e-3,
+        "compression_prob":0,
+        "fixed_window_condition":-1,
+        "challenge_ratio":0.8
+    }
+}
