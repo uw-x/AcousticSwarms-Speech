@@ -202,6 +202,9 @@ class BaseDataset(torch.utils.data.Dataset):
     def perturb_audio(self, input_audio):
         """
         Perturbs input audio by adding white and pink noise with random variance
+        Small note: Although some variables have "variance" in the name, this
+        may not correspond to the actual variance. Think of it more as some arbitrary
+        scale factor instead.
         """
         # Choose pink noise level
         pink_noise_level = self.max_pink_noise_variance * np.random.rand()
