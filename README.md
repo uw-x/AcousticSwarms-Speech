@@ -95,7 +95,7 @@ Then, to create synthetic mixtures with the configuration we describe in our pap
 python datasets/generate_dataset.py <path-to-VCTK-speaker-dir> <output-dir> --n_voices_min 2 --n_voices_max 5 --n_outputs_train 8000 --n_outputs_val 500 --n_outputs_test 100 --dimensions 3
 ```
 
-This will create a folder with train, test and val mixtures containing speakers from the respective data splits. Each mixture is described in its respective ```metadata.json```. Note that in the above commands, ```<path-to-VCTK-speaker-dir>``` should point to ```VCTK-Corpus/wav48``, wherever VCTK was installed.
+This will create a folder with train, test and val mixtures containing speakers from the respective data splits. Each mixture is described in its respective ```metadata.json```. Note that in the above commands, ```<path-to-VCTK-speaker-dir>``` should point to ```VCTK-Corpus/wav48```, wherever VCTK was installed.
 
 ### Experiments
 
@@ -126,9 +126,9 @@ We use sep/eval/eval_model.py to do end-to-end evaluation for both localization 
 python sep/eval/eval_model.py <dataset-path> --spot_experiment_dir <localization-experiment-dir> --sep_experiment_dir <separation-experiment-dir> --use_cuda --results_folder <results-dir>
 ```
 
-For example, first, if we want to test on a dataset "SYNTHETIC_2_5_COL/test", and we have downloaded the checkpoints for both localization model and separation model and put them in the ```localization``` and ```separation``` directories respectively, we can run:
+For example, first, if we want to test on a dataset "SYNTHETIC_2_5/test", and we have downloaded the checkpoints for both localization model and separation model and put them in the ```localization``` and ```separation``` directories respectively, we can run:
 ```
-python sep/eval/eval_model.py SYNTHETIC_2_5_COL/test --spot_experiment_dir experiments/localization/ --sep_experiment_dir experiments/separation/ --use_cuda --results_folder outputs
+python sep/eval/eval_model.py SYNTHETIC_2_5/test --spot_experiment_dir experiments/localization/ --sep_experiment_dir experiments/separation/ --use_cuda --results_folder outputs
 ```
 
 After running the scripts, it will output some results and running time, and also save the detailed results to JSON files including: 
